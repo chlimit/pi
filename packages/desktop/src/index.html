@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:" />
+		<title>Pi Desktop</title>
+		<link rel="stylesheet" href="./styles.css" />
+	</head>
+	<body>
+		<div class="app-shell">
+			<aside class="sidebar">
+				<div class="brand">pi</div>
+				<button id="workspace-button" class="primary">Open workspace</button>
+				<div class="sidebar-section">
+					<div class="eyebrow">Workspace</div>
+					<div id="workspace-label" class="workspace-label">No workspace selected</div>
+					<div id="session-label" class="session-label">Select a project to begin</div>
+				</div>
+				<div class="sidebar-section session-section">
+					<div class="eyebrow">Sessions</div>
+					<div id="session-list" class="session-list" role="list"></div>
+				</div>
+				<button id="new-session-button" class="secondary" disabled>New session</button>
+				<div class="status"><span class="status-dot"></span><span id="status-label">Choose a workspace</span></div>
+			</aside>
+
+			<main class="main-panel">
+				<header class="toolbar">
+					<select id="model-select" aria-label="Model" disabled><option>Select a workspace</option></select>
+					<select id="thinking-select" aria-label="Thinking level" disabled>
+						<option value="off">Thinking off</option>
+						<option value="minimal">Thinking minimal</option>
+						<option value="low">Thinking low</option>
+						<option value="medium">Thinking medium</option>
+						<option value="high">Thinking high</option>
+						<option value="xhigh">Thinking xhigh</option>
+						<option value="max">Thinking max</option>
+					</select>
+				</header>
+
+				<section id="transcript" class="transcript" aria-live="polite">
+					<div id="empty-state" class="empty-state">
+						<h1>Build with Pi</h1>
+						<p>Open a workspace, then describe what you want to change.</p>
+					</div>
+				</section>
+
+				<footer class="composer-shell">
+					<textarea id="composer" rows="3" placeholder="Ask Pi to inspect, explain, or change your project…" disabled></textarea>
+					<div class="composer-actions">
+						<span>Enter to send · Shift+Enter for newline</span>
+						<button id="stop-button" class="danger" hidden>Stop</button>
+						<button id="send-button" class="primary" disabled>Send</button>
+					</div>
+				</footer>
+			</main>
+		</div>
+		<div id="notice" class="notice" role="alert" hidden></div>
+		<script src="./renderer.js"></script>
+	</body>
+</html>

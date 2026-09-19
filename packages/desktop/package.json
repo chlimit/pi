@@ -1,0 +1,25 @@
+{
+	"name": "@earendil-works/pi-desktop",
+	"version": "0.0.1",
+	"private": true,
+	"type": "module",
+	"main": "dist/main.js",
+	"scripts": {
+		"build": "node scripts/build.mjs",
+		"check": "tsgo --noEmit -p tsconfig.json",
+		"dev": "node scripts/build.mjs && electron .",
+		"clean": "shx rm -rf dist"
+	},
+	"dependencies": {
+		"@earendil-works/pi-agent-core": "^0.85.1",
+		"@earendil-works/pi-coding-agent": "^0.85.1"
+	},
+	"devDependencies": {
+		"electron": "44.3.0",
+		"esbuild": "0.28.2",
+		"shx": "0.4.0"
+	},
+	"engines": {
+		"node": ">=22.19.0"
+	}
+}
