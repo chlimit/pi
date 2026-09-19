@@ -8,6 +8,7 @@
 		"build": "node scripts/build.mjs",
 		"check": "tsgo --noEmit -p tsconfig.json",
 		"dev": "node scripts/build.mjs && electron .",
+		"start": "node scripts/start.mjs",
 		"clean": "shx rm -rf dist"
 	},
 	"dependencies": {
