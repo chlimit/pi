@@ -9,26 +9,38 @@ Development-only Windows and macOS desktop MVP for Pi. It uses Electron for the 
 
 ## Run
 
-From the repository root:
+`npm run desktop` and `npm run desktop:dev` only work after `cd` into this repository. Running them from your home directory fails because npm looks for `package.json` in the current folder.
 
-```bash
-./pi-desktop.sh
-```
+From any directory, call the start script by path:
 
 ```powershell
-./pi-desktop.ps1
+<path-to-pi>\pi-desktop.cmd
+<path-to-pi>\pi-desktop.ps1
 ```
 
 ```bash
+<path-to-pi>/pi-desktop.sh
+```
+
+Or from the repository root:
+
+```powershell
+cd <path-to-pi>
+.\pi-desktop.cmd
+```
+
+```bash
+cd <path-to-pi>
+./pi-desktop.sh
 npm run desktop
 ```
 
 The start script installs workspace dependencies when `node_modules` is missing, downloads the Electron binary when it is missing, builds the desktop package, and launches the app. Electron's binary download is an install lifecycle script. Review it before the first launch, or pass `--rebuild-electron` to download again.
 
-```bash
-./pi-desktop.sh --help
-./pi-desktop.sh --install
-./pi-desktop.sh --rebuild-electron
+```powershell
+.\pi-desktop.cmd --help
+.\pi-desktop.cmd --install
+.\pi-desktop.cmd --rebuild-electron
 ```
 
 The app currently supports selecting a workspace, listing and resuming sessions, remembering the last workspace and session across restarts, streaming messages, tool status, stopping a run, model selection, thinking-level selection, and starting a new session. Opening a workspace continues the most recent session when one exists.

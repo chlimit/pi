@@ -5,6 +5,10 @@ import { fileURLToPath } from "node:url";
 
 const packageDir = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const repoRoot = resolve(packageDir, "../..");
+const repoPackageJson = join(repoRoot, "package.json");
+if (!existsSync(repoPackageJson)) {
+	fail(`Pi repository root not found next to the start script (${repoPackageJson}).`);
+}
 const minNode = { major: 22, minor: 19, patch: 0 };
 
 const args = process.argv.slice(2);
