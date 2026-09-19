@@ -1,0 +1,12 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"noEmit": true,
+		"lib": ["ES2022", "DOM", "DOM.Iterable"],
+		"types": ["node"]
+	},
+	"include": ["src/renderer.ts", "src/protocol.ts"],
+	"exclude": ["dist"]
+}
